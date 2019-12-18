@@ -6,11 +6,11 @@
 #    By: jbennink <marvin@codam.nl>                   +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/10/28 13:15:06 by jbennink       #+#    #+#                 #
-#    Updated: 2019/11/05 15:19:48 by jbennink      ########   odam.nl          #
+#    Updated: 2019/11/25 13:27:02 by jbennink      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Libft.a
+NAME = libft.a
 
 FLAGS = -Wall -Wextra -Werror
 
@@ -29,13 +29,15 @@ ft_lstlast_bonus.c ft_lstmap_bonus.c ft_lstnew_bonus.c ft_lstsize_bonus.c
 
 BONUSOBJS = $(BONUSSRCS:.c=.o)
 
-.PHONY: clean fclean re bonus
+.PHONY: all clean fclean re bonus
 
 all: $(NAME)
 
-$(NAME):
-	gcc $(FLAGS) -c $(SRCS)
-	ar rc $(NAME) $(OBJS)
+%.o: %.c
+	gcc $(FLAGS) -c $<
+
+$(NAME): $(OBJS)
+	ar rcs $(NAME) $?
 
 clean:
 	rm -f $(OBJS) $(BONUSOBJS)

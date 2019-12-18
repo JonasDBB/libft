@@ -6,7 +6,7 @@
 /*   By: jbennink <jbennink@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/31 17:27:03 by jbennink       #+#    #+#                */
-/*   Updated: 2019/11/04 15:20:08 by jbennink      ########   odam.nl         */
+/*   Updated: 2019/11/11 11:20:59 by jbennink      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		new = ft_lstnew(f(lst->content));
 		if (!new)
 		{
-			del(lst->content);
+			ft_lstclear(&start, del);
 			return (NULL);
 		}
 		prev->next = new;
