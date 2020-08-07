@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_isdigit.c                                       :+:    :+:            */
+/*   get_next_line.h                                    :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: jbennink <marvin@codam.nl>                   +#+                     */
+/*   By: jbennink <jbennink@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/10/28 13:31:06 by jbennink      #+#    #+#                 */
-/*   Updated: 2020/06/03 14:15:20 by jbennink      ########   odam.nl         */
+/*   Created: 2019/11/25 14:06:53 by jbennink      #+#    #+#                 */
+/*   Updated: 2020/06/03 14:13:03 by jbennink      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isdigit(int c)
-{
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
-}
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
+# include <stdlib.h>
+# include <unistd.h>
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 32
+# endif
+
+int		get_next_line(int fd, char **line);
+
+#endif

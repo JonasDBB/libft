@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_strlcpy.c                                       :+:    :+:            */
+/*   ft_strcmp.c                                        :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: jbennink <marvin@codam.nl>                   +#+                     */
+/*   By: jbennink <jbennink@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/10/28 13:29:31 by jbennink      #+#    #+#                 */
-/*   Updated: 2020/06/03 14:14:00 by jbennink      ########   odam.nl         */
+/*   Created: 2020/06/23 11:38:32 by jbennink      #+#    #+#                 */
+/*   Updated: 2020/06/23 11:39:04 by jbennink      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
-#include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+int	ft_strcmp(const char *s1, const char *s2)
 {
-	size_t i;
+	size_t			i;
+	unsigned char	*str1;
+	unsigned char	*str2;
 
+	str1 = (unsigned char*)s1;
+	str2 = (unsigned char*)s2;
 	i = 0;
-	if (!dst || !src)
-		return (i);
-	if (dstsize == 0)
-		return (ft_strlen(src));
-	while (src[i] && i < dstsize - 1)
+	while ((str1[i] || str2[i]))
 	{
-		dst[i] = src[i];
+		if (str1[i] != str2[i])
+			return (str1[i] - str2[i]);
 		i++;
 	}
-	dst[i] = '\0';
-	return (ft_strlen(src));
+	return (0);
 }

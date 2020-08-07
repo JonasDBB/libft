@@ -5,8 +5,8 @@
 /*                                                     +:+                    */
 /*   By: jbennink <jbennink@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/10/30 12:26:57 by jbennink       #+#    #+#                */
-/*   Updated: 2019/11/08 10:45:21 by jbennink      ########   odam.nl         */
+/*   Created: 2019/10/30 12:26:57 by jbennink      #+#    #+#                 */
+/*   Updated: 2020/06/25 11:15:21 by jbennink      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static int	ft_len(char const *s, char c)
 	int	i;
 
 	i = 0;
-	while (s[i] != c)
+	while (s[i] != c && s[i])
 		i++;
 	return (i);
 }
